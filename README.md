@@ -1,4 +1,5 @@
 # AWS
 
-* security-groups link:https://github.com/ssheff/AWS/blob/main/security-groups [how to find used and not used]
+## Securioty Groups Section:
 
+* Security Gorups [how to find  groups that are being used and which are not used](https://github.com/ssheff/AWS/blob/main/security-groups). 
