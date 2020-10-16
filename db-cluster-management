@@ -1,0 +1,17 @@
+# I have a provisioned serverless aurora cluster and 
+# using instance scheduler to stop the instances however, 
+# found that it is not working for RDS service
+ 
+* Shutdown is not working for a few reasons:
+ 
+As mentioned in below documentation, 'you cannot stop and start an Aurora Serverless cluster.'
+[+] Stopping and starting an Amazon Aurora DB cluster - Limitations for stopping and starting Aurora DB clusters
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations
+
+Moving ahead, you can enable auto-pause on your serverless cluster and the cluster will be paused automatically when it's idle (it has no connections). 
+When database traffic resumes, Aurora automatically resumes processing capacity and scales to handle the traffic. 
+Refer below documentation for more details:
+[+] https://docs.amazonaws.cn/en_us/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.modifying.html
+ 
+Also, When the DB cluster is paused, no compute or memory activity occurs then you are charged only for storage.
+[+] https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
